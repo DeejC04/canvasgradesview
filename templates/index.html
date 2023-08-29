@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+                <ul>
+                    {% for course in course_info %}
+                    <div class="class_object">
+                    <li>
+                        <h1>
+                            {{course.name}}
+                        </h1>
+                        <h1 class="grades">
+                            {% if not course.enrollments.0.computed_current_grade %} N/A
+                            {%endif%} {{course.enrollments.0.computed_current_grade}}
+                            {{course.enrollments.0.computed_current_score}}%
+                        </h1>
+                    </li>
+                </div>
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+</body>
+
+</html>
